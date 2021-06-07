@@ -1,4 +1,7 @@
-# First steps
+# Very basic how-to
+
+> :warning: **This is intended as hackathon/hobby material**: I have made this in a few hours on a friday. It is more intended for inspriration rather than actual 24/7/365 usage. Even though it works. This is merely a explanation on _how_ it works, rather than a full-blown mature project. So many things should be different/better. I know. That said: enjoy!
+
 
 Make sure to have longhorn on your cluster or remove the PVC part in `kube-prometheus/manifests/prometheus-prometheus.yaml` 
 
