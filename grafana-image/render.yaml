@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: image-render
+  name: image-render
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: image-render
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: image-render
+    spec:
+      containers:
+      - image: grafana/grafana-image-renderer:latest
+        name: grafana-image-renderer
+        resources: {}
+        ports:
+        - containerPort: 8081

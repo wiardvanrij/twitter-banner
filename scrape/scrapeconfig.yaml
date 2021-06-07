@@ -1,0 +1,19 @@
+  - job_name: 'json_probe'
+    metrics_path: /probe
+    relabel_configs:
+    - source_labels: [__address__]
+      target_label: __param_target
+      replacement: "https://api.twitter.com/2/users/by/username/$1?user.fields=public_metrics"
+    - source_labels: [__address__]
+      target_label: instance
+    - target_label: __address__
+      replacement: 'json-exporter-deployment:7979'
+    scrape_interval: 50s
+    static_configs:
+    - targets:
+      - RijWiard
+      - fullstaq
+  - job_name: 'json_exporter'
+    static_configs:
+    - targets: ['json-exporter-deployment:7979']
+    

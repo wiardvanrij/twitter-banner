@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: json-exporter
+  name: json-exporter-deployment
+  namespace: monitoring
+spec:
+  ports:
+  - port: 7979
+    protocol: TCP
+    targetPort: 7979
+  selector:
+    app: json-exporter
+  type: ClusterIP

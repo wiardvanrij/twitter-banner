@@ -1,0 +1,28 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: push-image
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      ttlSecondsAfterFinished: 60
+      template:
+        spec:
+          containers:
+          - name: twittergrafana
+            image: docker.io/wiardvanrij/twittergrafana:2
+            imagePullPolicy: IfNotPresent
+            env:
+            - name: consumer_key
+              value: xxx
+            - name: consumer_secret
+              value: xxx
+            - name: access_token
+              value: xxx
+            - name: access_token_secret
+              value: xxx
+            - name: image_url
+              ## Example; replace it
+              value: http://admin:admin@grafana:3000/render/d-solo/wR0Yf26Gk/twitter-followers?orgId=1&panelId=2&width=1500&height=500&tz=Europe%2FAmsterdam  
+          restartPolicy: OnFailure

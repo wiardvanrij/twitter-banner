@@ -1,0 +1,31 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: json-exporter-deployment
+  labels:
+    app: json-exporter
+  namespace: monitoring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: json-exporter
+  template:
+    metadata:
+      labels:
+        app: json-exporter
+    spec:
+      containers:
+      - name: json-exporter
+        image: quay.io/prometheuscommunity/json-exporter
+        args: ["--config.file=/etc/config/config.yaml"]
+        ports:
+        - containerPort: 7979  
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/config     
+      volumes:
+        - name: config-volume
+          configMap:
+            name: json-config   
