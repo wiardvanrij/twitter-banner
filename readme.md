@@ -33,6 +33,10 @@ Apply grafana image renderer
 
 `kubectl apply -f grafana-image`
 
+Apply the dashboards 
+
+`kubectl apply -f dashboards/dash.yaml`
+
 Get your Twitter API keys and edit `json_exporter/config.yaml` in fill in the bearer token.
 
 `kubectl apply -f json_exporter` 
