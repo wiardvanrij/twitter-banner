@@ -55,6 +55,8 @@ Check if all your dashboards are correct. Open a dashboard and click on the drop
 
 This is the URL you should save as input for the docker Image to run the `job.yaml` with. Do remove the `&from=xxx&to=xxx` part of the URL. *We don't need this.*
 
+Make sure it has the proper dimensions for Twitter, which is: `&width=1500&height=500` Adjust this in the params.
+
 Now in `job.yaml` fill in the environment variables. The tokens should be from the Twitter API. The image_url is the url from above. Remember to remove the `from` and `to` part. Since we have auth on Grafana, we have to add a prefix to the url with so it looks like: `http://admin:admin@grafana:3000` 
 
 If you ever run this publicly, refactor this with an API key.
