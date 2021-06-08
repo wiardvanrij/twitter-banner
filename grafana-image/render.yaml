@@ -4,6 +4,7 @@ metadata:
   labels:
     app: image-render
   name: image-render
+  namespace: monitoring
 spec:
   replicas: 1
   selector:

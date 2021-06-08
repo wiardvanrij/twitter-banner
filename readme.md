@@ -44,7 +44,7 @@ Get your Twitter API keys and edit `json_exporter/config.yaml` in fill in the be
 
 The `scrape/scrapeconfig.yaml` should be applyed as a secret like:
 
-```kubectl create secret generic additional-configs --from-file=scrapeconfig.yaml --dry-run=client -o yaml``` 
+```kubectl create secret generic additional-configs -n monitoring --from-file=scrapeconfig.yaml --dry-run=client -o yaml``` 
 
 Either remove the dry-run or use the output to apply this manually
 

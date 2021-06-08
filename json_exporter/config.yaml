@@ -12,5 +12,5 @@ data:
       bearer_token: <your-token>
 kind: ConfigMap
 metadata:
-  creationTimestamp: null
+  namespace: monitoring
   name: json-config
