@@ -43,11 +43,13 @@ Get your Twitter API keys and edit `json_exporter/config.yaml` to fill in the be
 
 Next, we need to configure the scrape of the data. Edit `scrape/scrapeconfig.yaml` to include the username(s) of the Twitter accounts you defined in the Grafana deployment above. Again, these are case sensitive.
 
-The `scrape/scrapeconfig.yaml` should be applyed as a secret like:
+Next, edit `scrape/scrapeconfig.yaml` to include all your target usernames in `targets`. This is case sensitive.
+
+The `scrape/scrapeconfig.yaml` should be applied as a secret like:
 
 ```kubectl create secret generic additional-configs -n monitoring --from-file=scrapeconfig.yaml --dry-run=client -o yaml``` 
 
-To actually get it on your cluster, either remove the dry-run or use the output to apply this manually.
+To actually get it on your cluster, either remove the `--dry-run...` part or use the output to apply this manually.
 
 If everything is fine, you should be able to login to Grafana (port forward to grafana on port 3000):
 
